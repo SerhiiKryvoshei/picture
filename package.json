@@ -1,0 +1,23 @@
+{
+	"name": "picture",
+	"source": "src/index.html",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+		"start": "parcel --open",
+		"build": "parcel build --dist-dir build --public-url ./"
+	},
+	"author": "",
+	"license": "ISC",
+	"browserslist": [
+		"> 1%",
+		"not dead"
+	],
+	"devDependencies": {
+		"gh-pages": "^5.0.0",
+		"parcel": "^2.9.2"
+	}
+}
+
