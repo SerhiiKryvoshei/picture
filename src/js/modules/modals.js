@@ -1,8 +1,11 @@
 import { calcScroll } from "../helpers/calcScroll";
 
+let isBtnPressed = false;
+
 const closeModals = (windows) => {
 	windows.forEach((item) => {
 		item.style.display = "none";
+		item.classList.add("animated", "fadeIn");
 	});
 };
 
@@ -13,11 +16,25 @@ const isOpenModalWindow = (windows) => {
 	return false;
 };
 
+const openByScroll = (selector) => {
+	window.addEventListener("scroll", () => {
+		if (
+			!isBtnPressed &&
+			window.scrollY + document.documentElement.clientHeight >=
+				document.documentElement.scrollHeight
+		) {
+			// Open the gift window
+			document.querySelector(selector).click();
+		}
+	});
+};
+
 function bindModal(
 	triggerSelector,
 	modalSelector,
 	closeSelector,
-	closeClickOverlay = true
+	closeClickOverlay = true,
+	destroy = false
 ) {
 	const trigger = document.querySelectorAll(triggerSelector);
 	const modal = document.querySelector(modalSelector);
@@ -31,6 +48,13 @@ function bindModal(
 			if (e.target) {
 				e.preventDefault();
 			}
+
+			isBtnPressed = true;
+
+			if (destroy) {
+				item.remove();
+			}
+
 			closeModals(windows);
 			modal.style.display = "block";
 			document.body.style.overflow = "hidden";
@@ -59,8 +83,10 @@ function showModalByTime(selector, time) {
 	setTimeout(() => {
 		const windows = document.querySelectorAll("[data-modal]");
 		if (!isOpenModalWindow(windows)) {
+			const scroll = calcScroll();
 			document.querySelector(selector).style.display = "block";
 			document.body.style.overflow = "hidden";
+			document.body.style.marginRight = `${scroll}px`;
 		}
 	}, time);
 }
@@ -71,11 +97,22 @@ export const modals = () => {
 		".popup-design",
 		".popup-design .popup-close"
 	);
+
 	bindModal(
 		".button-order.button-consultation",
 		".popup-consultation",
 		".popup-consultation .popup-close"
 	);
+
+	bindModal(
+		".fixed-gift",
+		".popup-gift",
+		".popup-gift .popup-close",
+		true,
+		true
+	);
+
+	openByScroll(".fixed-gift");
 
 	showModalByTime(".popup-consultation", 60000);
 };
