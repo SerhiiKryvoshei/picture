@@ -1262,6 +1262,10 @@ h4 {
 	padding: 3rem 6rem 4rem 6rem;
 }
 
+.status {
+	text-align: center;
+}
+
 /*scroll*/
 *::-webkit-scrollbar {
 	width: 3px;

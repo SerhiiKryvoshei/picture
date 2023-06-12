@@ -1,11 +1,9 @@
-import { modals, sliders } from "./modules/index";
+import { modals, sliders, forms } from "./modules/index";
 
 window.addEventListener("DOMContentLoaded", initApp);
 
 function initApp() {
 	"use strict";
-
-	let modalState = {};
 
 	modals();
 
@@ -17,4 +15,6 @@ function initApp() {
 		".main-prev-btn",
 		".main-next-btn"
 	);
+
+	forms();
 }
