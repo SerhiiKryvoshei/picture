@@ -1,4 +1,5 @@
-import { modals, sliders, forms } from "./modules/index";
+import { modals, sliders, forms, mask, showMoreStyles } from "./modules/index";
+import { checkTextInputs } from "./helpers/index";
 
 window.addEventListener("DOMContentLoaded", initApp);
 
@@ -17,4 +18,10 @@ function initApp() {
 	);
 
 	forms();
+
+	mask("[name='phone']");
+	checkTextInputs("[name='name']");
+	checkTextInputs("[name='message']");
+
+	showMoreStyles(".button.button-transparent.button-styles", ".styles-2");
 }
