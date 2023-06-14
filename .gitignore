@@ -36,6 +36,7 @@ yarn-error.log*
 # ksv
 /_ksv
 /.vscode
+/server
 
 # parcel
 /.parcel-cache

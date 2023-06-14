@@ -23,5 +23,5 @@ function initApp() {
 	checkTextInputs("[name='name']");
 	checkTextInputs("[name='message']");
 
-	showMoreStyles(".button.button-transparent.button-styles", ".styles-2");
+	showMoreStyles(".button.button-transparent.button-styles", "#styles .row");
 }

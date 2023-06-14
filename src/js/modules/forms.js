@@ -1,4 +1,4 @@
-import { checkNumInputs } from "../helpers/index";
+import { postData } from "../services/index";
 
 const urls = {
 	designer: "https://jsonplaceholder.typicode.com/posts",
@@ -12,17 +12,6 @@ const message = {
 	spinner: "spinner.gif",
 	ok: "ok.png",
 	fail: "fail.png",
-};
-
-const postDate = async (url, data) => {
-	const response = await fetch(url, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json;charset=utf-8",
-		},
-		body: data,
-	});
-	return await response.json();
 };
 
 const clearInputs = (inputs, uploads) => {
@@ -41,7 +30,6 @@ export const forms = () => {
 
 	let fileFullName;
 
-	// checkNumInputs('input[name="user_phone"]');
 	uploads.forEach((item) => {
 		item.addEventListener("input", () => {
 			fileFullName = item.files[0].name;
@@ -87,7 +75,7 @@ export const forms = () => {
 			formData.append("fileFullName", fileFullName);
 
 			const strJSON = JSON.stringify(Object.fromEntries(formData));
-			postDate(api, strJSON)
+			postData(api, strJSON)
 				.then((response) => {
 					statusImg.setAttribute("src", message.ok);
 					statusImg.setAttribute("alt", "test image");
