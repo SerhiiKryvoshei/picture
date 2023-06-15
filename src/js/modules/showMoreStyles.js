@@ -37,7 +37,7 @@ export const showMoreStyles = (triggerSelector, wrapperSelector) => {
 
 		getResource("server/db.json")
 			.then((response) => {
-				console.log(response.styles);
+				// console.log(response.styles);
 				createCards(response.styles);
 			})
 			.catch((error) => console.log(error));

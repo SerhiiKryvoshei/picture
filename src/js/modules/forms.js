@@ -46,6 +46,14 @@ export const forms = () => {
 		item.addEventListener("submit", (e) => {
 			e.preventDefault();
 
+			const target = e.target;
+
+			let sum = 0;
+			if (target.classList.contains("form_calc")) {
+				const calcPrice = target.querySelector(".calc-price");
+				sum = calcPrice.textContent;
+			}
+
 			let api;
 			const statusMessage = document.createElement("div");
 			statusMessage.classList.add("status");
@@ -73,14 +81,16 @@ export const forms = () => {
 
 			formData.append("api", api);
 			formData.append("fileFullName", fileFullName);
+			if (sum > 0) formData.append("sum", sum);
 
 			const strJSON = JSON.stringify(Object.fromEntries(formData));
+
 			postData(api, strJSON)
 				.then((response) => {
 					statusImg.setAttribute("src", message.ok);
 					statusImg.setAttribute("alt", "test image");
 					textMessage.textContent = message.success;
-					console.log(response);
+					// console.log(response);
 				})
 				.catch(() => {
 					statusImg.setAttribute("src", message.fail);
