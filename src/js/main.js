@@ -6,6 +6,7 @@ import {
 	showMoreStyles,
 	calc,
 	filter,
+	pictureSize,
 } from "./modules/index";
 import { checkTextInputs } from "./helpers/index";
 import { getResource } from "./services/index";
@@ -54,4 +55,6 @@ function initApp() {
 		.catch((error) => console.log(error));
 
 	filter();
+
+	pictureSize(".sizes-block");
 }
