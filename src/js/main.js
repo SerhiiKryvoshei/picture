@@ -8,6 +8,7 @@ import {
 	filter,
 	pictureSize,
 	accordion,
+	burger,
 } from "./modules/index";
 import { checkTextInputs } from "./helpers/index";
 import { getResource } from "./services/index";
@@ -60,4 +61,6 @@ function initApp() {
 	pictureSize(".sizes-block");
 
 	accordion(".accordion-heading", ".accordion-block");
+
+	burger(".burger", ".burger-menu");
 }
