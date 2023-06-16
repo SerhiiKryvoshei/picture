@@ -9,6 +9,7 @@ import {
 	pictureSize,
 	accordion,
 	burger,
+	scrolling,
 } from "./modules/index";
 import { checkTextInputs } from "./helpers/index";
 import { getResource } from "./services/index";
@@ -63,4 +64,6 @@ function initApp() {
 	accordion(".accordion-heading", ".accordion-block");
 
 	burger(".burger", ".burger-menu");
+
+	scrolling(".pageup");
 }
