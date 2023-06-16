@@ -6,3 +6,4 @@ export { showMoreStyles } from "./showMoreStyles.js";
 export { calc } from "./calc.js";
 export { filter } from "./filter.js";
 export { pictureSize } from "./pictureSize.js";
+export { accordion } from "./accordion.js";

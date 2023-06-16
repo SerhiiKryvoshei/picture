@@ -7,6 +7,7 @@ import {
 	calc,
 	filter,
 	pictureSize,
+	accordion,
 } from "./modules/index";
 import { checkTextInputs } from "./helpers/index";
 import { getResource } from "./services/index";
@@ -57,4 +58,6 @@ function initApp() {
 	filter();
 
 	pictureSize(".sizes-block");
+
+	accordion(".accordion-heading", ".accordion-block");
 }
