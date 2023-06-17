@@ -10,6 +10,7 @@ import {
 	accordion,
 	burger,
 	scrolling,
+	drop,
 } from "./modules/index";
 import { checkTextInputs } from "./helpers/index";
 import { getResource } from "./services/index";
@@ -66,4 +67,6 @@ function initApp() {
 	burger(".burger", ".burger-menu");
 
 	scrolling(".pageup");
+
+	drop();
 }
